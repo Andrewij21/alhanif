@@ -1,0 +1,14 @@
+{
+  "name": "Rafli Septiana",
+  "email": "rafli.204210t@student.ubl.ac.id",
+  "password": "",
+  "secret": "SVA",
+  "database": {
+    "development": {
+      "uri": "mongodb+srv://rafli290902:rafli123@cluster0.lqgvzhg.mongodb.net/alhanif"
+    },
+    "production": {
+      "uri": "mongodb+srv://rafli290902:rafli123@cluster0.lqgvzhg.mongodb.net/alhanif"
+    }
+  }
+}
