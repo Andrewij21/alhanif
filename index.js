@@ -1,5 +1,3 @@
-"use strict";
-
 const express = require("express");
 const app = express();
 const logger = require("morgan");
@@ -71,15 +69,15 @@ app.use("/jabatan_pp", require("./routes/PP/r_pp_jabatan"));
 app.use("/jabatan_tp_pp", require("./routes/PP/r_pp_jabatan_tp"));
 app.use("/tp_pp", require("./routes/PP/r_pp_tp"));
 
-server.listen(port);
 server.on("listening", onListening);
+server.listen(port);
 
 async function onListening() {
   try {
     console.log("try to listen...");
     var addr = server.address();
     var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-    setUp.dbConnect();
+    await setUp.dbConnect();
     console.log("Listening on " + bind);
   } catch (error) {
     console.log(error);
