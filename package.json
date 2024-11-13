@@ -50,7 +50,7 @@
     "prettier": "1.19.1"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon api/index.js"
   },
   "author": "Rafli Septiana",
   "license": "ISC"
