@@ -78,7 +78,7 @@ async function onListening() {
     var addr = server.address();
     var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
     await setUp.dbConnect();
-    console.log("Listening on " + bind);
+    console.log("Listening on http://localhost:" + addr.port);
   } catch (error) {
     console.log(error);
     console.log("listen failed, try to reconnect in 5 secs...");
