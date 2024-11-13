@@ -40,4 +40,13 @@ router.put("/update_pengeluaran/:id_pengeluaran", (req, res) => {
     .then((result) => res.json(result))
     .catch((err) => res.json(err));
 });
+
+router.get("/searchData/:startDate/:endDate", (req, res) => {
+  console.log(req.params.startDate);
+  console.log(req.params.endDate);
+  userController
+    .searchDate(req.params.startDate, req.params.endDate)
+    .then((result) => res.json(result))
+    .catch((err) => res.json(err));
+});
 module.exports = router;

@@ -73,3 +73,27 @@ exports.updatePembelian = (id, data) =>
       reject(requestResponse.common_error);
     }
   });
+
+exports.searchDate = (startdate, enddate) =>
+  new Promise((resolve, reject) => {
+    try {
+      customerModel
+        .find({
+          TanggalPembayaran: {
+            $gte: startdate,
+            $lt: enddate,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          resolve(requestResponse.commonSuccessWithData(res));
+        })
+        .catch((e) => {
+          console.log(e);
+          reject(requestResponse.common_error);
+        });
+    } catch (e) {
+      console.log(e);
+      reject(requestResponse.common_error);
+    }
+  });

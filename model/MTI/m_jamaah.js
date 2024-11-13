@@ -80,6 +80,10 @@ const CustomerSchema = new Schema({
     type: String,
     default: null,
   },
+  status: {
+    type: String,
+    default: null,
+  },
 });
 
 module.exports = mongoose.model("jamaah_mti", CustomerSchema);

@@ -57,4 +57,17 @@ router.get("/view_jamaah_id/:id_jamaah", (req, res) => {
     });
 });
 
+router.get("/view_jamaah_kelas/:kelas", (req, res) => {
+  console.log(req.params.kelas);
+  console.log(req.body);
+  userController
+    .getSantriKelas(req.params.kelas)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 module.exports = router;

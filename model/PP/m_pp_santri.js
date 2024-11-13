@@ -64,6 +64,10 @@ const CustomerSchema = new Schema({
     type: String,
     default: null,
   },
+  status: {
+    type: String,
+    default: null,
+  },
 });
 
 module.exports = mongoose.model("santri_pp", CustomerSchema);

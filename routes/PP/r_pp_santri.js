@@ -35,8 +35,22 @@ router.get("/view_santri", (req, res) => {
 
 router.get("/view_santri_id/:id_santri", (req, res) => {
   console.log(req.params.id_santri);
+  console.log(req.body);
   userController
     .getPembelianById(req.params.id_santri)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+router.get("/view_santri_kelas/:kelas", (req, res) => {
+  console.log(req.params.kelas);
+  console.log(req.body);
+  userController
+    .getSantriKelas(req.params.kelas)
     .then((result) => {
       res.json(result);
     })

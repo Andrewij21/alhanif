@@ -45,6 +45,19 @@ router.get("/view_siswa_id/:id_siswa", (req, res) => {
     });
 });
 
+router.get("/view_siswa_kelas/:kelas", (req, res) => {
+  console.log(req.params.kelas);
+  console.log(req.body);
+  userController
+    .getSantriKelas(req.params.kelas)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 router.put("/update_siswa/:id_siswa", fields, (req, res) => {
   let newBody = JSON.parse(req.body.data);
   let foto = uploadConf.cekNull(req.file);

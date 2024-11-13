@@ -120,41 +120,26 @@ exports.getPembelianById = (id) =>
     }
   });
 
-// exports.updatePembelian = (id, data) =>
-//   new Promise((resolve, reject) => {
-//     try {
-//       model
-//         .updateOne(
-//           { _id: ObjectId(id) },
-//           { $set: data }
-//         )
-//         .then(() => {
-//           resolve(requestResponse.common_success)
-//         })
-//         .catch((e) => {
-//           console.log(e)
-//           reject(requestResponse.common_error)
-//         })
-//     } catch (e) {
-//       console.log(e)
-//       reject(requestResponse.common_error)
-//     }
-//   })
-
-// exports.deletePembelian = (id) =>
-//   new Promise((resolve, reject) => {
-//     try {
-//       model
-//         .deleteOne({ _id: ObjectId(id) })
-//         .then(() => {
-//           resolve(requestResponse.common_delete)
-//         })
-//         .catch((e) => {
-//           console.log(e)
-//           reject(requestResponse.common_error)
-//         })
-//     } catch (e) {
-//       console.log(e)
-//       reject(requestResponse.common_error)
-//     }
-//   })
+exports.searchDate = (startdate, enddate) =>
+  new Promise((resolve, reject) => {
+    try {
+      customerModel
+        .find({
+          TanggalPembayaran: {
+            $gte: startdate,
+            $lt: enddate,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          resolve(requestResponse.commonSuccessWithData(res));
+        })
+        .catch((e) => {
+          console.log(e);
+          reject(requestResponse.common_error);
+        });
+    } catch (e) {
+      console.log(e);
+      reject(requestResponse.common_error);
+    }
+  });

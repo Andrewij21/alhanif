@@ -41,6 +41,10 @@ module.exports = (router) => {
       data.role = 4;
     } else if (data.role == "Admin Yayasan") {
       data.role = 1;
+    } else if (data.role == "Sekertaris Yayasan") {
+      data.role = 5;
+    } else if (data.role == "Bendahara Yayasan") {
+      data.role = 6;
     } else {
       data.role = 0;
     }

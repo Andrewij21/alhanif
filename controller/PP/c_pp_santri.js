@@ -29,91 +29,6 @@ exports.getAllCustomer = () =>
       .catch(() => reject(requestResponse.common_error));
   });
 
-// exports.addCustomer = (data) =>
-//   new Promise((resolve, reject) => {
-//     try {
-//       model
-//         .create(data)
-//         .then((res) => {
-//           data.customers(i => {
-//             return {
-//               idCustomer: res.id_customer,
-//               namaCustomer: i.namaCustomer,
-//               alamatCustomer: i.alamatCustomer,
-//               kotaCustomer: i.kotaCustomer,
-//               posCustomer: i.posCustomer,
-//               teleponCustomer: i.teleponCustomer
-//             }
-//           })
-//           resolve(requestResponse.common_success)
-//         })
-//         .catch((e) => {
-//           console.log(e)
-//           reject(requestResponse.common_error)
-//         })
-//     } catch (e) {
-//       console.log(e)
-//       reject(requestResponse.common_error)
-//     }
-//   })
-
-// exports.getCustomer = () =>
-//   new Promise((resolve, reject) => {
-//     try {
-//       model
-//         .find()
-//         .then((res) => {
-//           resolve(requestResponse.commonSuccessWithData(res))
-//         })
-//         .catch((e) => {
-//           console.log(e)
-//           reject(requestResponse.common_error)
-//         })
-//     } catch (e) {
-//       console.log(e)
-//       reject(requestResponse.common_error)
-//     }
-//   })
-
-// exports.getPembelianById = (id) =>
-//   new Promise((resolve, reject) => {
-//     try {
-//       model
-//         .findOne({ _id: ObjectId(id) })
-//         .then((res) => {
-//           resolve(requestResponse.commonSuccessWithData(res))
-//         })
-//         .catch((e) => {
-//           console.log(e)
-//           reject(requestResponse.common_error)
-//         })
-//     } catch (e) {
-//       console.log(e)
-//       reject(requestResponse.common_error)
-//     }
-//   })
-
-// exports.updatePembelian = (id, data) =>
-//   new Promise((resolve, reject) => {
-//     try {
-//       model
-//         .updateOne(
-//           { _id: ObjectId(id) },
-//           { $set: data }
-//         )
-//         .then(() => {
-//           resolve(requestResponse.common_success)
-//         })
-//         .catch((e) => {
-//           console.log(e)
-//           reject(requestResponse.common_error)
-//         })
-//     } catch (e) {
-//       console.log(e)
-//       reject(requestResponse.common_error)
-//     }
-//   })
-
 exports.deletePembelian = (id) =>
   new Promise((resolve, reject) => {
     try {
@@ -164,6 +79,25 @@ exports.getPembelianById = (id) =>
     try {
       customerModel
         .findOne({ _id: ObjectId(id) })
+        .then((res) => {
+          resolve(requestResponse.commonSuccessWithData(res));
+        })
+        .catch((e) => {
+          console.log(e);
+          reject(requestResponse.common_error);
+        });
+    } catch (e) {
+      console.log(e);
+      reject(requestResponse.common_error);
+    }
+  });
+
+exports.getSantriKelas = (classe) =>
+  new Promise((resolve, reject) => {
+    console.log(classe);
+    try {
+      customerModel
+        .find({ kelas: classe })
         .then((res) => {
           resolve(requestResponse.commonSuccessWithData(res));
         })

@@ -137,3 +137,22 @@ exports.deletePembelian = (id) =>
       reject(requestResponse.common_error);
     }
   });
+
+exports.getSantriKelas = (classe) =>
+  new Promise((resolve, reject) => {
+    console.log(classe);
+    try {
+      customerModel
+        .find({ kelas: classe })
+        .then((res) => {
+          resolve(requestResponse.commonSuccessWithData(res));
+        })
+        .catch((e) => {
+          console.log(e);
+          reject(requestResponse.common_error);
+        });
+    } catch (e) {
+      console.log(e);
+      reject(requestResponse.common_error);
+    }
+  });

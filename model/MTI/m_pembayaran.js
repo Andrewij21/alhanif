@@ -20,6 +20,10 @@ const CustomerSchema = new Schema({
     type: String,
     default: null,
   },
+  kelas: {
+    type: String,
+    default: null,
+  },
   JenisPembayaran: {
     type: String,
     default: null,

@@ -12,6 +12,10 @@ const CustomerSchema = new Schema({
     type: String,
     default: null,
   },
+  Kelas: {
+    type: String,
+    default: null,
+  },
   TanggalPembayaran: {
     type: String,
     default: null,
